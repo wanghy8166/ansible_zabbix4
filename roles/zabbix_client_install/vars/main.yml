@@ -1,0 +1,4 @@
+zabbix_version: zabbix-agent-4.0.7-1.el7.x86_64.rpm
+zabbix_user: zabbix
+zabbix_port: 10050
+zabbix_server_ip: 172.29.5.18

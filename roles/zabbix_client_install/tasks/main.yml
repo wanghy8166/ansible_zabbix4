@@ -1,0 +1,21 @@
+  - name: Copy zabbix_agentd rpm
+    copy: 
+      src={{ zabbix_version }}
+      dest=/tmp/
+
+  - name: Install zabbix_agentd rpm
+    yum:
+      name: /tmp/{{ zabbix_version }}
+      state: present
+
+  - name: Copy zabbix_agentd Config
+    template: 
+      src=zabbix_agentd.conf 
+      dest=/etc/zabbix/zabbix_agentd.conf
+
+  - name: Enable service zabbix-agent, and Restart
+    service:
+      name: zabbix-agent
+      enabled: yes
+      state: restarted
+
